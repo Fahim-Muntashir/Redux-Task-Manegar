@@ -1,16 +1,13 @@
-import { Dialog, Transition } from '@headlessui/react'
-import { Children, Fragment } from 'react'
+import { Dialog, Transition } from "@headlessui/react";
+import { Fragment } from "react";
 
-export default function Modal({isOpen,setIsOpen,title,children}) {
-
+export default function Modal({ isOpen, setIsOpen, title, children }) {
   function closeModal() {
-    setIsOpen(false)
+    setIsOpen(false);
   }
-
 
   return (
     <>
-   
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={closeModal}>
           <Transition.Child
@@ -41,12 +38,9 @@ export default function Modal({isOpen,setIsOpen,title,children}) {
                     as="h3"
                     className="text-lg font-medium leading-6 text-gray-900"
                   >
-                    {
-                      title
-}                  </Dialog.Title>
-                  {
-                    children
-                  }
+                    {title}{" "}
+                  </Dialog.Title>
+                  {children}
                 </Dialog.Panel>
               </Transition.Child>
             </div>
@@ -54,5 +48,5 @@ export default function Modal({isOpen,setIsOpen,title,children}) {
         </Dialog>
       </Transition>
     </>
-  )
+  );
 }

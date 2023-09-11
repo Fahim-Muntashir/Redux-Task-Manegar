@@ -7,10 +7,7 @@ import { useSelector } from "react-redux";
 const Tasks = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const { tasks } = useSelector((state) => {
-    state.tasksSlice;
-  });
-
+  const { tasks } = useSelector((state) => state.tasksSlice);
   console.log(tasks);
 
   return (
@@ -52,7 +49,9 @@ const Tasks = () => {
               </p>
             </div>
             <div className="space-y-3">
-              <TaskCard />
+              {tasks.map((item) => (
+                <TaskCard key={item.id} task={item} />
+              ))}
             </div>
           </div>
           <div className="relative h-[800px] overflow-auto">
@@ -63,8 +62,9 @@ const Tasks = () => {
               </p>
             </div>
             <div className="space-y-3">
-              <TaskCard />
-              <TaskCard />
+              {tasks.map((item) => (
+                <TaskCard key={item.id} task={item} />
+              ))}
             </div>
           </div>
           <div className="relative h-[800px] overflow-auto">
@@ -75,7 +75,9 @@ const Tasks = () => {
               </p>
             </div>
             <div className="space-y-3">
-              <TaskCard />
+              {tasks.map((item) => (
+                <TaskCard key={item.id} task={item} />
+              ))}{" "}
             </div>
           </div>
         </div>
